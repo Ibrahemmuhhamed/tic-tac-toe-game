@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main_create">
+      <div class="logo"><img src="assets/logo.svg" alt="" srcset="" /></div>
+      <div class="pick_player">
+        <p class="d">PICK PLAYER 1'S MARK</p>
+        <form action="">
+          <div>
+            <input type="radio" name="Player" id="X" checked />
+
+            <div class="after">
+              <p>X</p>
+            </div>
+          </div>
+          <div>
+            <input type="radio" name="Player" id="O" />
+            <div class="after">
+              <p>O</p>
+            </div>
+          </div>
+        </form>
+        <p class="note">REMEMBER: X GOES FIRST</p>
+      </div>
+      <input
+        type="button"
+        class="cpu btn"
+        value="New game (vs cpu)"
+        data-player="cpu"
+      />
+      <input
+        type="button"
+        class="player btn"
+        value="New game (vs Player)"
+        data-player="player"
+      />
+    </main>
+    <main class="main_game maingame" id="main">
+      <div class="end">
+        <div class="center">
+          <p class="won">You Won</p>
+          <p class="stat"><span class="value">X</span> Takes The Round</p>
+          <form action="">
+            <button class="quit" type="button">QUIT</button>
+            <button class="round" type="button">Next Round</button>
+          </form>
+        </div>
+      </div>
+      <div class="end rest">
+        <div class="center">
+          <p class="stat">Restart The Game</p>
+          <form action="">
+            <button class="quit" type="button">NO CANSEL</button>
+            <button class="round" type="button">YES,RESTART</button>
+          </form>
+        </div>
+      </div>
+      <div class="top">
+        <img src="assets/logo.svg" alt="" srcset="" />
+        <div class="turn_div">
+          <p class="turn">O</p>
+          Turn
+        </div>
+        <div class="restart">
+          <img src="assets/icon-restart.svg" alt="" srcset="" />
+        </div>
+      </div>
+      <div class="game">
+        <div data-value="0">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="1">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="2">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="3">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="4">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="5">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="6">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="7">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+        <div data-value="8">
+          <div class="after"></div>
+          <div class="before"></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="player1_info">
+          <div>
+            <p class="value">X</p>
+            <span>(You)</span>
+          </div>
+          <p class="num">0</p>
+        </div>
+        <div class="ties">
+          <p>Ties</p>
+          <p class="num">0</p>
+        </div>
+        <div class="player2_info">
+          <div>
+            <p class="value">O</p>
+            <span>(CPU)</span>
+          </div>
+          <p class="num">0</p>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

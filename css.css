@@ -1,0 +1,336 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-family: "Rubik", sans-serif;
+}
+body {
+  background-color: #1a2a33;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.disp {
+  display: flex !important;
+}
+.pick_player {
+  padding: 30px;
+  background-color: #1f3641;
+  color: #fff;
+  border-radius: 5px;
+  width: 450px;
+  display: flex;
+  gap: 21px;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.pick_player .d {
+  font-size: 1.1rem;
+  color: #a8bfc9;
+  font-weight: 600;
+  text-align: center;
+}
+
+.main_create form {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1a2a33;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+form div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.1s;
+}
+form div:hover {
+  background-color: #223c48;
+}
+input[type="radio"] {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 33;
+  position: relative;
+  opacity: 0;
+}
+input[type="radio"]:checked ~ div.after {
+  background-color: #a8bfc9;
+}
+input[type="radio"]:checked ~ .after p {
+  color: #1a2a33;
+}
+form div .after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.after p {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #a8bfc9;
+}
+.note {
+  text-align: center;
+  color: #8b8b8b;
+  font-weight: 500;
+}
+.btn {
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+}
+.cpu {
+  /* background-color: #e94; */
+  background-color: #f2b137;
+  box-shadow: inset 0 -0.6rem 0 #b77c0c;
+}
+.player {
+  background-color: #31c3bd;
+  box-shadow: inset 0 -0.6rem 0 #1d716e;
+}
+@media screen and (width < 570px) {
+  .pick_player {
+    width: 100%;
+  }
+  body {
+    background-color: #1a2a33;
+    height: auto;
+    padding-top: 60px;
+  }
+}
+.main_create {
+  display: flex;
+}
+.main_game {
+  display: none;
+}
+.main_game .top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+}
+.turn_div {
+  padding: 15px 35px;
+  background-color: #1f3641;
+  display: flex;
+  gap: 5px;
+  color: #a8bfc9;
+  box-shadow: inset 0 -0.3rem 0 #0f191e;
+  border-radius: 5px;
+  font-size: 25px;
+  font-weight: 500;
+  justify-content: space-between;
+  align-items: center;
+}
+.restart {
+  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  background-color: #a8bfc9;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: inset 0 -0.3rem 0 #7a8a91;
+}
+.restart img {
+  height: 25px !important;
+}
+.turn_div .turn {
+  font-size: 31px;
+  font-weight: 700;
+}
+.main_game .top img {
+  height: 35px;
+}
+
+.main_game .game {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  grid-template-rows: 130px 130px 130px;
+  gap: 15px;
+}
+.main_game .game > div {
+  /* background-color: #a8bfc9; */
+  background-color: #1f3641;
+  border-radius: 10px;
+  box-shadow: inset 0 -0.7rem 0 #0f191e;
+  cursor: pointer;
+  position: relative;
+}
+.main_game .game div .after {
+  position: absolute;
+  content: "";
+  width: 60px;
+  height: 60px;
+  inset: 0;
+  margin: auto;
+  display: var(--dis-x);
+  opacity: var(--show-x, 0);
+}
+.main_game .game.X--turn div .after {
+  background-image: url(assets/icon-X-outline.svg);
+}
+.main_game .game.O--turn div .after {
+  background-image: url(assets/icon-O-outline.svg);
+}
+.main_game .game div .after.O--played {
+  background-image: url(assets/icon-O.svg);
+  opacity: 1;
+}
+.main_game .game div .after.X--played {
+  background-image: url(assets/icon-X.svg);
+  opacity: 1;
+}
+/* .main_game .game div .before {
+  position: absolute;
+  content: "";
+  background-image: var(--O-played, url(assets/icon-O-outline.svg));
+  width: 60px;
+  height: 60px;
+  inset: 0;
+  display: var(--dis-o);
+  margin: auto;
+  opacity: var(--show-o, 0);
+} */
+.main_game .game div:hover .after {
+  opacity: 1;
+}
+.main_game .game div:hover .before {
+  opacity: 1;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.bottom > div {
+  /* height: 70px; */
+  display: flex;
+  border-radius: 10px;
+  padding: 15px 50px;
+  flex-direction: column;
+  /* width: 120px; */
+  align-items: center;
+  justify-content: center;
+}
+.bottom > div div {
+  display: flex;
+}
+.player1_info {
+  background-color: #31c3bd;
+}
+.ties {
+  background-color: #a8bfc9;
+}
+.player2_info {
+  background-color: #f2b137;
+}
+.value {
+  font-size: 17px;
+}
+.num {
+  font-size: 21px;
+  font-weight: 800;
+}
+.end {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  inset: 0;
+  background-color: #0f191ec9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.end .center {
+  height: 290px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  background-color: rgb(31, 54, 65);
+  flex-direction: column;
+  justify-self: center;
+  /* justify-content: stretch; */
+  align-items: center;
+  gap: 15px;
+}
+p.won {
+  font-size: 22px;
+  font-weight: 600;
+  color: #a8bfc9;
+}
+.stat {
+  font-weight: 500;
+  color: rgb(49, 195, 189);
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.stat .value {
+  font-size: 60px;
+  text-align: center;
+  font-weight: bolder;
+}
+form .quit {
+  outline: 0;
+  cursor: pointer;
+  border: 0;
+  padding: 15px 30px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 700;
+  color: rgb(26, 42, 51);
+  background-color: rgb(168, 191, 201);
+  /* background-color: aquamarine; */
+  box-shadow: rgb(105, 145, 162) 0px -0.3rem 0px inset;
+  /* box-shadow: inset 0px -4px #bbbf36; */
+}
+form .round {
+  cursor: pointer;
+  /* padding: unset; */
+  border: 0;
+  /* background-color: #e8ae00; */
+  background-color: rgb(242, 177, 55);
+  box-shadow: rgb(183, 124, 12) 0px -0.3rem 0px inset;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 10px;
+  /* box-shadow: inset 0 -4px; */
+}
